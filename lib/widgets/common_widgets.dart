@@ -42,7 +42,6 @@ class InputField extends StatelessWidget {
             SizedBox(width: 35),
             Expanded(
               child: TextField(
-                obscureText: secureText,
                 onChanged: onChanged,
                 decoration: InputDecoration(
                     errorText: errorMessage,
