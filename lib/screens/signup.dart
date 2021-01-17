@@ -1,5 +1,6 @@
 import 'package:fl_xcel/utils/app_images.dart';
 import 'package:fl_xcel/utils/fade_page.dart';
+import 'package:fl_xcel/utils/strings.dart';
 import 'package:fl_xcel/widgets/common_widgets.dart';
 import 'package:fl_xcel/widgets/constants.dart';
 import 'package:flutter/gestures.dart';
@@ -48,7 +49,7 @@ class _SignUpRouteState extends State<SignUpRoute> {
               child: Stack(
                 children: <Widget>[
                   Hero(
-                    tag: 'gradient_tag',
+                    tag: strGradientTag,
                     child: Container(
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
@@ -59,7 +60,7 @@ class _SignUpRouteState extends State<SignUpRoute> {
                     ),
                   ),
                   Hero(
-                    tag: 'main_image',
+                    tag: strMainImage,
                     child: Align(
                       alignment: Alignment.topRight,
                       child: Image.asset(
@@ -83,17 +84,17 @@ class _SignUpRouteState extends State<SignUpRoute> {
                           child: Row(
                             children: <Widget>[
                               Hero(
-                                tag: 'hyphen_tag',
+                                tag: strHyphenTag,
                                 child: Icon(
                                   Icons.chevron_left,
                                   color: Colors.white,
                                 ),
                               ),
                               Hero(
-                                tag: 'welcome_tag',
+                                tag: strWelcomeTag,
                                 flightShuttleBuilder: flightShuttleBuilder,
                                 child: Text(
-                                  'Back',
+                                  strBack,
                                   style: TextStyle(
                                     color: AppColors.white,
                                     fontSize: 16,
@@ -109,10 +110,10 @@ class _SignUpRouteState extends State<SignUpRoute> {
                       Padding(
                         padding: EdgeInsets.all(16),
                         child: Hero(
-                          tag: 'desc_tag',
+                          tag: strDescTag,
                           flightShuttleBuilder: flightShuttleBuilder,
                           child: Text(
-                            'Create New Account',
+                            strCreateAccount,
                             style: TextStyle(
                                 color: AppColors.white,
                                 fontSize: 20,
@@ -127,7 +128,7 @@ class _SignUpRouteState extends State<SignUpRoute> {
             ),
             Expanded(
               child: Hero(
-                tag: 'bottom_layout',
+                tag: strBottomLayout,
                 child: Material(
                   type: MaterialType.transparency,
                   child: SingleChildScrollView(
@@ -138,36 +139,36 @@ class _SignUpRouteState extends State<SignUpRoute> {
                         children: <Widget>[
                           Spacer(),
                           InputField(
-                            hint: 'Username',
+                            hint: strUserName,
                             iconPath: userIcon,
                             onChanged: (txt) {
                               _username = txt;
                             },
                             secureText: false,
                             errorMessage:
-                                _validUsername ? null : 'Enter valid username',
+                                _validUsername ? null : strEnterValidUserName,
                           ),
                           SizedBox(height: 30),
                           InputField(
-                            hint: 'Password',
+                            hint: strPassword,
                             iconPath: lockIcon,
                             onChanged: (txt) {
                               _password = txt;
                             },
                             secureText: true,
                             errorMessage:
-                                _validPassword ? null : 'Enter valid password',
+                                _validPassword ? null : strEnterValidPassword,
                           ),
                           SizedBox(height: 30),
                           InputField(
-                            hint: 'Email',
+                            hint: strEmail,
                             iconPath: emailIcon,
                             onChanged: (txt) {
                               _email = txt;
                             },
                             secureText: true,
                             errorMessage:
-                                _validEmail ? null : 'Enter valid email',
+                                _validEmail ? null : strEnterValidEmail,
                           ),
                           Spacer(),
                           TermsCheckBox(onChange: (bool val) {
@@ -175,7 +176,7 @@ class _SignUpRouteState extends State<SignUpRoute> {
                           }),
                           SizedBox(height: 40),
                           SimpleButton(
-                              text: 'SIGN UP',
+                              text: strSignUp,
                               onPressed: () {
                                 setState(() {
                                   _validUsername = _username.length >= 3 &&
@@ -186,7 +187,7 @@ class _SignUpRouteState extends State<SignUpRoute> {
                                 });
 
                                 if (!_termsCheck) {
-                                  Toast.show('Please check the terms', context);
+                                  Toast.show(strCheckTerms, context);
                                 }
 
                                 if (_validUsername &&
@@ -249,11 +250,11 @@ class _TermsCheckBoxState extends State<TermsCheckBox> {
           SizedBox(width: 10),
           RichText(
             text: new TextSpan(
-              text: 'I have accepted the ',
+              text: strIHaveAccepted,
               style: TextStyle(color: Colors.grey, fontSize: 18),
               children: [
                 new TextSpan(
-                  text: 'Terms & Condition',
+                  text: strTermsAndCondition,
                   style: TextStyle(
                       decoration: TextDecoration.underline,
                       color: AppColors.greenAccent,

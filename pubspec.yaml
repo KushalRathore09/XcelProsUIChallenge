@@ -29,4 +29,16 @@ flutter:
   assets:
     - assets/images/
 
+  fonts:
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/Quicksand-Bold.ttf
+        - asset: assets/fonts/Quicksand-Light.ttf
+        - asset: assets/fonts/Quicksand-Medium.ttf
+        - asset: assets/fonts/Quicksand-Regular.ttf
+
+    - family: ProximaNovaSoft
+      fonts:
+        - asset: assets/fonts/ProximaNovaSoft-Regular.otf
+
 

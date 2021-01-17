@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:fl_xcel/screens/signup.dart';
 import 'package:fl_xcel/utils/app_images.dart';
 import 'package:fl_xcel/utils/fade_page.dart';
+import 'package:fl_xcel/utils/strings.dart';
 import 'package:fl_xcel/widgets/common_widgets.dart';
 import 'package:fl_xcel/widgets/constants.dart';
 import 'package:fl_xcel/widgets/loading.dart';
@@ -38,7 +39,7 @@ class _LoginRouteState extends State<LoginRoute>
                 child: Stack(
                   children: <Widget>[
                     Hero(
-                      tag: 'gradient_tag',
+                      tag: strGradientTag,
                       child: Container(
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
@@ -80,9 +81,9 @@ class _LoginRouteState extends State<LoginRoute>
                           ),
                           Hero(
                             flightShuttleBuilder: flightShuttleBuilder,
-                            tag: 'welcome_tag',
+                            tag: strWelcomeTag,
                             child: Text(
-                              'Welcome',
+                              strWelcome,
                               style: TextStyle(
                                 color: AppColors.white,
                                 fontSize: 20,
@@ -93,9 +94,9 @@ class _LoginRouteState extends State<LoginRoute>
                           SizedBox(height: 10),
                           Hero(
                             flightShuttleBuilder: flightShuttleBuilder,
-                            tag: 'desc_tag',
+                            tag: strDescTag,
                             child: Text(
-                              'to Daily UI Challenge',
+                              strToDailyUIChallenge,
                               style: TextStyle(
                                   color: AppColors.white,
                                   fontSize: 18,
@@ -111,7 +112,7 @@ class _LoginRouteState extends State<LoginRoute>
             ),
             Expanded(
               child: Hero(
-                tag: 'bottom_layout',
+                tag: strBottomLayout,
                 child: Material(
                   type: MaterialType.transparency,
                   child: SingleChildScrollView(
@@ -122,27 +123,27 @@ class _LoginRouteState extends State<LoginRoute>
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           InputField(
-                            hint: 'Username',
+                            hint: strUserName,
                             iconPath: userIcon,
                             onChanged: (txt) {
                               _username = txt;
                             },
                             secureText: false,
                             errorMessage:
-                                _validUsername ? null : 'Enter valid username',
+                                _validUsername ? null : strEnterValidUserName,
                           ),
                           InputField(
-                            hint: 'Password',
+                            hint: strPassword,
                             iconPath: lockIcon,
                             onChanged: (txt) {
                               _password = txt;
                             },
                             secureText: true,
                             errorMessage:
-                                _validPassword ? null : 'Enter valid password',
+                                _validPassword ? null : strEnterValidPassword,
                           ),
                           SimpleButton(
-                              text: 'SIGN IN',
+                              text: strSignIn,
                               onPressed: () {
                                 setState(() {
                                   _validUsername = _username.length >= 3 && !_username.contains(' ');
@@ -156,11 +157,11 @@ class _LoginRouteState extends State<LoginRoute>
                               }),
                           RichText(
                             text: new TextSpan(
-                              text: 'Don\'t have an account? ',
+                              text: strDontHaveAnAccount,
                               style: TextStyle(color: Colors.grey, fontSize: 18),
                               children: [
                                 new TextSpan(
-                                  text: 'SIGN UP',
+                                  text: strSignUp,
                                   style: TextStyle(
                                       color: AppColors.greenAccent,
                                       fontWeight: FontWeight.bold),
